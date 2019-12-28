@@ -1,0 +1,16 @@
+# Export Environment variables (HEROKU_EMAIL, HEROKU_API_KEY)
+# https://www.terraform.io/docs/providers/heroku/index.html#environment-variables
+provider "heroku" {}
+
+resource "heroku_app" "main" {
+  name   = var.app_name
+  region = var.region
+
+  config_vars = var.config_vars
+  buildpacks = var.buildpacks
+}
+
+resource "heroku_addon" "database" {
+  app  = heroku_app.main.name
+  plan = var.database_plan
+}
