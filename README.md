@@ -1,4 +1,5 @@
 # terraform modules
 
-個人開発で利用する terraform modules 群です。
+This repository is terraform modules for indivisual use.
 
+Supported providers are AWS and heroku.
