@@ -3,7 +3,7 @@
 provider "heroku" {}
 
 resource "heroku_app" "main" {
-  name   = var.app_name
+  name   = var.name
   region = var.region
 
   config_vars = var.config_vars
