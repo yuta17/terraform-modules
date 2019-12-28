@@ -7,11 +7,11 @@ output "region" {
 }
 
 output "config_vars" {
-  value = heroku_app.main.config_vers
+  value = heroku_app.main.config_vars
 }
 
 output "buildpacks" {
-  value = heroku_addon.main.buildpacks
+  value = heroku_app.main.buildpacks
 }
 
 output "database_plan" {
