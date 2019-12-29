@@ -1,6 +1,7 @@
 variable "name" {
-  type = string
   description = "app name"
+  type = string
+  default = null
 }
 
 variable "region" {
@@ -20,5 +21,5 @@ variable "buildpacks" {
 
 variable "database_plan" {
   type = string
-  default = "heroku-postgresql:hobby-dev"
+  default = null
 }
