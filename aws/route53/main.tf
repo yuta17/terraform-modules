@@ -7,4 +7,5 @@ resource "aws_route53_record" "main" {
   name    = aws_route53_zone.main.name
   type    = "A"
   ttl     = "300"
+  records = ["10.0.0.1"]
 }
