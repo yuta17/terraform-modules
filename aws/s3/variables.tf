@@ -1,14 +1,14 @@
 variable "bucket" {
-  type = string
+  type    = string
   default = null
 }
 
 variable "acl" {
-  type = string
+  type    = string
   default = "private"
 }
 
 variable "tags" {
-  type = map(string)
+  type    = map(string)
   default = {}
 }

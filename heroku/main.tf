@@ -7,7 +7,7 @@ resource "heroku_app" "main" {
   region = var.region
 
   config_vars = var.config_vars
-  buildpacks = var.buildpacks
+  buildpacks  = var.buildpacks
 }
 
 resource "heroku_addon" "database" {

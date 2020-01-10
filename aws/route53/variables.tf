@@ -1,5 +1,5 @@
 variable "name" {
   description = "domain name"
-  type = string
-  default = null
+  type        = string
+  default     = null
 }
