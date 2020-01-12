@@ -13,6 +13,16 @@ variable "enable_dns_hostnames" {
   default = true
 }
 
+variable "public_subnet_id" {
+  type    = string
+  default = null
+}
+
+variable "private_subnet_id" {
+  type    = string
+  default = null
+}
+
 variable "tags" {
   type    = map(string)
   default = {}
