@@ -8,15 +8,18 @@ resource "aws_vpc" "main" {
 # internet gateway
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
+  tags = var.tags
 }
 
 # Route Tables
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
+  tags = var.tags
 }
 
 resource "aws_route_table" "private" {
   vpc_id = aws_vpc.main.id
+  tags = var.tags
 }
 
 # Route Table Association
@@ -47,10 +50,12 @@ resource "aws_route" "private" {
 resource "aws_eip" "nat_gateway" {
   vpc        = true
   depends_on = [aws_internet_gateway.main]
+  tags = var.tags
 }
 
 resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.nat_gateway.id
   subnet_id     = var.public_subnet_id
   depends_on    = [aws_internet_gateway.main]
+  tags = var.tags
 }

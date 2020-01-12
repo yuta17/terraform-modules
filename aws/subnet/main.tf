@@ -3,6 +3,7 @@ resource "aws_subnet" "public" {
   cidr_block              = var.public_cidr_block
   map_public_ip_on_launch = false
   availability_zone       = var.availability_zone
+  tags = var.tags
 }
 
 resource "aws_subnet" "private" {
@@ -10,4 +11,5 @@ resource "aws_subnet" "private" {
   cidr_block              = var.private_cidr_block
   map_public_ip_on_launch = true
   availability_zone       = var.availability_zone
+  tags = var.tags
 }
