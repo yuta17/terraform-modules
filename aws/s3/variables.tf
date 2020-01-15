@@ -8,6 +8,11 @@ variable "acl" {
   default = "private"
 }
 
+variable "policy" {
+  type    = string
+  default = null
+}
+
 variable "tags" {
   type    = map(string)
   default = {}

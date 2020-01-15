@@ -6,11 +6,6 @@ resource "aws_lb" "main" {
   enable_deletion_protection  = var.enable_deletion_protection
   subnets                     = var.public_subnet_ids
   security_groups             = var.security_groups
-
-  access_logs {
-    bucket  = var.bucket_id
-    enabled = var.access_logs_enabled
-  }
 }
 
 resource "aws_lb_listener" "http" {

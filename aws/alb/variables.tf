@@ -24,23 +24,13 @@ variable "enable_deletion_protection" {
 }
 
 variable "public_subnet_ids" {
-  // type    = list
+  type    = list(string)
   default = []
 }
 
 variable "security_groups" {
-  // type    = list
+  type    = list(string)
   default = []
-}
-
-variable "bucket_id" {
-  type    = string
-  default = null
-}
-
-variable "access_logs_enabled" {
-  type    = bool
-  default = true
 }
 
 variable "http_port" {
