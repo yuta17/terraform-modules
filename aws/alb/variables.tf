@@ -33,12 +33,7 @@ variable "security_groups" {
   default = []
 }
 
-variable "http_port" {
+variable "certificate_arn" {
   type    = string
-  default = 80
-}
-
-variable "http_protocol" {
-  type    = string
-  default = "HTTP"
+  default = null
 }

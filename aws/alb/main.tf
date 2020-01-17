@@ -10,8 +10,8 @@ resource "aws_lb" "main" {
 
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.main.arn
-  port              = var.http_port
-  protocol          = var.http_protocol
+  port              = "80"
+  protocol          = "HTTP"
 
   default_action {
     type = "fixed-response"
@@ -19,6 +19,24 @@ resource "aws_lb_listener" "http" {
     fixed_response {
       content_type = "text/plain"
       message_body = "これは HTTP です"
+      status_code  = "200"
+    }
+  }
+}
+
+resource "aws_lb_listener" "http" {
+  load_balancer_arn = aws_lb.main.arn
+  port              = "443"
+  protocol          = "HTTPS"
+  certiificate_arn  = var.certificate_arn
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+
+  default_action {
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "これは HTTPS です"
       status_code  = "200"
     }
   }
