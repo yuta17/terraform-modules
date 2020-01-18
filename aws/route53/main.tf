@@ -1,10 +1,11 @@
-resource "aws_route53_zone" "main" {
+# Get domain on Route53
+data "aws_route53_zone" "main" {
   name = var.name
 }
 
 resource "aws_route53_record" "main" {
-  zone_id = aws_route53_zone.main.zone_id
-  name    = aws_route53_zone.main.name
+  zone_id = data.aws_route53_zone.main.zone_id
+  name    = data.aws_route53_zone.main.name
   type    = "A"
 
   alias {
@@ -18,6 +19,6 @@ resource "aws_route53_record" "certificate" {
   name    = var.certificate_resource_record_name
   type    = var.certificate_resource_record_type
   records = [var.certificate_resource_record_value]
-  zone_id = aws_route53_zone.main.id
+  zone_id = data.aws_route53_zone.main.id
   ttl     = 60
 }
