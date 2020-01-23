@@ -10,3 +10,30 @@ resource "aws_ecs_task_definition" "main" {
   requires_compatibilities = ["FARGATE"]
   container_definitions    = var.container_definitions
 }
+
+resource "aws_ecs_service" "main" {
+  name                               = var.name
+  cluster                            = aws_ecs_cluster.main.arn
+  task_definition                    = aws_ecs_task_definition.main.arn
+  desired_count                      = 2
+  launch_type                        = "FARGATE"
+  platform_version                   = "1.3.0"
+  health_check_grace_period_sseconds = 60
+
+  network_configration {
+    assign_public_ip = false
+    security_groups = [var.security_group_id]
+
+    subnets = [var.private_subnet_ids]
+  }
+
+  load_balancer {
+    target_group_arn = var.aws_lb_target_group_arn
+    container_name   = var.name
+    container_port   = 80
+  }
+
+  lifecycle {
+    ignore_changes = [task_definition]
+  }
+}
