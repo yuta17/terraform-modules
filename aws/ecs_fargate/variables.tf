@@ -19,7 +19,7 @@ variable "security_group_id" {
 }
 
 variable "private_subnet_ids" {
-  type    = string
+  type    = map(string)
   default = null
 }
 
@@ -29,4 +29,3 @@ variable "aws_lb_target_group_arn" {
 }
 
 variable "container_definitions" {}
-
