@@ -9,6 +9,7 @@ resource "aws_ecs_task_definition" "main" {
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   container_definitions    = var.container_definitions
+  execution_role_arn       = var.execution_role_arn
 }
 
 resource "aws_ecs_service" "main" {

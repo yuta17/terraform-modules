@@ -29,3 +29,8 @@ variable "aws_lb_target_group_arn" {
 }
 
 variable "container_definitions" {}
+
+variable "execution_role_arn" {
+  type    = string
+  default = null
+}
