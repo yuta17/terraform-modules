@@ -19,8 +19,8 @@ variable "security_group_id" {
 }
 
 variable "private_subnet_ids" {
-  type    = map(string)
-  default = null
+  type    = list(string)
+  default = []
 }
 
 variable "aws_lb_target_group_arn" {
