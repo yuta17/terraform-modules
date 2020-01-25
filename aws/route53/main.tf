@@ -4,9 +4,10 @@ data "aws_route53_zone" "main" {
 }
 
 resource "aws_route53_record" "main" {
-  zone_id = data.aws_route53_zone.main.zone_id
-  name    = data.aws_route53_zone.main.name
-  type    = "A"
+  zone_id         = data.aws_route53_zone.main.zone_id
+  name            = data.aws_route53_zone.main.name
+  type            = "A"
+  allow_overwrite = true
 
   alias {
     name                   = var.alb_dns_name
