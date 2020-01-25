@@ -37,4 +37,6 @@ resource "aws_ecs_service" "main" {
   lifecycle {
     ignore_changes = [task_definition]
   }
+
+  depends_on = [var.aws_lb_listener_rule]
 }

@@ -34,3 +34,5 @@ variable "execution_role_arn" {
   type    = string
   default = null
 }
+
+variable "aws_lb_listener_rule" {}
