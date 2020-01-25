@@ -1,11 +1,11 @@
 resource "aws_lb" "main" {
-  name                        = var.name
-  load_balancer_type          = var.load_balancer_type
-  internal                    = var.internal
-  idle_timeout                = var.idle_timeout
-  enable_deletion_protection  = var.enable_deletion_protection
-  subnets                     = var.public_subnet_ids
-  security_groups             = var.security_groups
+  name                       = var.name
+  load_balancer_type         = var.load_balancer_type
+  internal                   = var.internal
+  idle_timeout               = var.idle_timeout
+  enable_deletion_protection = var.enable_deletion_protection
+  subnets                    = var.public_subnet_ids
+  security_groups            = var.security_groups
 }
 
 resource "aws_lb_listener" "http" {
@@ -60,7 +60,7 @@ resource "aws_lb_listener" "redirect_http_to_https" {
 
 
 resource "aws_lb_target_group" "main" {
-  name        = var.name
+  name = var.name
 
   # ECS Fargate
   target_type          = "ip"
@@ -70,7 +70,7 @@ resource "aws_lb_target_group" "main" {
   deregistration_delay = 300
 
   health_check {
-    path = "/"
+    path                = "/"
     healthy_threshold   = 5
     unhealthy_threshold = 2
     timeout             = 5
@@ -88,7 +88,7 @@ resource "aws_lb_listener_rule" "main" {
   priority     = 100
 
   action {
-    type = "forward"
+    type             = "forward"
     target_group_arn = aws_lb_target_group.main.arn
   }
 

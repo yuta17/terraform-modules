@@ -13,17 +13,17 @@ resource "aws_ecs_task_definition" "main" {
 }
 
 resource "aws_ecs_service" "main" {
-  name                               = var.name
-  cluster                            = aws_ecs_cluster.main.arn
-  task_definition                    = aws_ecs_task_definition.main.arn
-  desired_count                      = 2
-  launch_type                        = "FARGATE"
-  platform_version                   = "1.3.0"
-  health_check_grace_period_seconds  = 60
+  name                              = var.name
+  cluster                           = aws_ecs_cluster.main.arn
+  task_definition                   = aws_ecs_task_definition.main.arn
+  desired_count                     = 2
+  launch_type                       = "FARGATE"
+  platform_version                  = "1.3.0"
+  health_check_grace_period_seconds = 60
 
   network_configuration {
     assign_public_ip = false
-    security_groups = [var.security_group_id]
+    security_groups  = [var.security_group_id]
 
     subnets = var.private_subnet_ids
   }
