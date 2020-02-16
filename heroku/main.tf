@@ -14,3 +14,8 @@ resource "heroku_addon" "database" {
   app  = heroku_app.main.name
   plan = var.database_plan
 }
+
+resource "heroku_addon" "sendgrid" {
+  app  = heroku_app.main.name
+  plan = var.sendgrid_plan
+}

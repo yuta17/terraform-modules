@@ -21,5 +21,10 @@ variable "buildpacks" {
 
 variable "database_plan" {
   type    = string
-  default = null
+  default = "heroku-postgresql:hobby-dev"
+}
+
+variable "sendgrid_plan" {
+  type    = string
+  default = "sendgrid:starter"
 }
