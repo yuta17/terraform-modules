@@ -9,6 +9,11 @@ variable "region" {
   default = "us"
 }
 
+variable "acm" {
+  type = bool
+  default = false
+}
+
 variable "config_vars" {
   type    = map(string)
   default = {}

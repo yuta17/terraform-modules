@@ -5,7 +5,7 @@ provider "heroku" {}
 resource "heroku_app" "main" {
   name   = var.name
   region = var.region
-  acm    = true
+  acm    = var.acm
 
   config_vars = var.config_vars
   buildpacks  = var.buildpacks
