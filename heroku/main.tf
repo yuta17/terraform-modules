@@ -12,12 +12,15 @@ resource "heroku_app" "main" {
 }
 
 resource "heroku_addon" "database" {
+  count = var.database_count
+
   app  = heroku_app.main.name
   plan = var.database_plan
 }
 
 resource "heroku_addon" "sendgrid" {
   count = var.sendgrid_count
+
   app  = heroku_app.main.name
   plan = var.sendgrid_plan
 }

@@ -24,6 +24,11 @@ variable "database_plan" {
   default = "heroku-postgresql:hobby-dev"
 }
 
+variable "database_count" {
+  type    = number
+  default = 1
+}
+
 variable "sendgrid_plan" {
   type    = string
   default = "sendgrid:starter"
