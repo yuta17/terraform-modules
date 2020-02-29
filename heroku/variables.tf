@@ -28,3 +28,8 @@ variable "sendgrid_plan" {
   type    = string
   default = "sendgrid:starter"
 }
+
+variable "sendgrid_count" {
+  type    = number
+  default = 0
+}
