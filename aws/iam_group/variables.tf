@@ -14,6 +14,6 @@ variable "policy" {
 }
 
 variable "membership_users" {
-  type        = map(string)
+  type        = list(string)
   default     = []
 }
