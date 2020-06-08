@@ -1,7 +1,7 @@
-resource "aws_iam_user" "hassanterraform" {
+resource "aws_iam_user" "main" {
   name = var.name
 }
 
-resource "aws_iam_access_key" "hassanterraform" {
-  user = aws_iam_user.hassanterraform.name
+resource "aws_iam_access_key" "main" {
+  user = aws_iam_user.main.name
 }
