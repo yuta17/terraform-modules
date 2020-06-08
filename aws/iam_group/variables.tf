@@ -5,7 +5,7 @@ variable "name" {
 
 variable "use_policy" {
   type    = number
-  default = 0
+  default = 1
 }
 
 variable "policy" {
