@@ -6,7 +6,7 @@
  */
 resource "aws_vpc_endpoint" "s3" {
   vpc_id            = var.vpc_id
-  service_name      = "s3"
+  service_name      = "com.amazonaws.ap-northeast-1.s3"
   vpc_endpoint_type = "Gateway"
 }
 
@@ -24,7 +24,7 @@ resource "aws_vpc_endpoint_route_table_association" "private_s3" {
  */
 resource "aws_vpc_endpoint" "dkr" {
   vpc_id            = var.vpc_id
-  service_name      = "ecr.dkr"
+  service_name      = "com.amazonaws.ap-northeast-1.ecr.dkr"
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = var.ecr_dkr_endpoint_security_group_ids
@@ -41,7 +41,7 @@ resource "aws_vpc_endpoint" "dkr" {
  */
 resource "aws_vpc_endpoint" "logs" {
   vpc_id            = var.vpc_id
-  service_name      = "logs"
+  service_name      = "com.amazonaws.ap-northeast-1.logs"
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = var.logs_endpoint_security_group_ids
