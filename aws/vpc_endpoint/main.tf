@@ -28,7 +28,7 @@ resource "aws_vpc_endpoint" "dkr" {
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = var.ecr_dkr_endpoint_security_group_ids
-  subnet_ids          = ["${var.private_subnet_ids}"]
+  subnet_ids          = var.private_subnet_ids
   private_dns_enabled = true
 
   tags = var.tags
@@ -45,7 +45,7 @@ resource "aws_vpc_endpoint" "logs" {
   vpc_endpoint_type = "Interface"
 
   security_group_ids  = var.logs_endpoint_security_group_ids
-  subnet_ids          = ["${var.private_subnet_ids}"]
+  subnet_ids          = var.private_subnet_ids
   private_dns_enabled = true
 
   tags = var.tags
