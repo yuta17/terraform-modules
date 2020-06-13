@@ -10,7 +10,7 @@ variable "region" {
 }
 
 variable "acm" {
-  type = bool
+  type    = bool
   default = false
 }
 

@@ -1,5 +1,5 @@
 variable "name" {
-  type = string
+  type    = string
   default = ""
 }
 
@@ -9,11 +9,11 @@ variable "use_policy" {
 }
 
 variable "policy" {
-  type        = string
-  default     = ""
+  type    = string
+  default = ""
 }
 
 variable "membership_users" {
-  type        = list(string)
-  default     = []
+  type    = list(string)
+  default = []
 }
