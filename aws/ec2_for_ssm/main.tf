@@ -40,7 +40,7 @@ resource "aws_ssm_document" "session_manager_run_shell" {
       "sessionType": "Standard_Stream",
       "inputs": {
         "s3BucketName": "${aws_s3_bucket.operation.id}",
-        "cloudwatchLogGroupName": "${aws_cloudwatch_log_group.operation.name}"
+        "cloudWatchLogGroupName": "${aws_cloudwatch_log_group.operation.name}"
       }
     }
   EOF
