@@ -12,7 +12,7 @@ resource "aws_instance" "for_operation" {
 }
 
 resource "aws_s3_bucket" "operation" {
-  bucket = "operation-pragmatic-terraform"
+  bucket = var.operation_bucket_name
 
   lifecycle_rule {
     enabled = true

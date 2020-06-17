@@ -7,3 +7,8 @@ variable "private_subnet_id" {
   type = string
   default = null
 }
+
+variable "operation_bucket_name" {
+  type = string
+  default = null
+}
