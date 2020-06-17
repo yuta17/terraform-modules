@@ -8,7 +8,7 @@ resource "aws_instance" "for_operation" {
   instance_type = "t3.micro"
   iam_instance_profile = aws_iam_instance_profile.ec2_for_ssm.name
   subnet_id = var.private_subnet_id
-  user_data = file("./user_data.sh")
+  user_data = file("${path.module}/user_data.sh")
 }
 
 resource "aws_s3_bucket" "operation" {
