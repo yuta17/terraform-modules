@@ -4,11 +4,11 @@ resource "aws_iam_instance_profile" "ec2_for_ssm" {
 }
 
 resource "aws_instance" "for_operation" {
-  ami = "ami-0c3fd0f5d33134a76"
-  instance_type = "t3.micro"
+  ami                  = "ami-0c3fd0f5d33134a76"
+  instance_type        = "t3.micro"
   iam_instance_profile = aws_iam_instance_profile.ec2_for_ssm.name
-  subnet_id = var.private_subnet_id
-  user_data = file("${path.module}/user_data.sh")
+  subnet_id            = var.private_subnet_id
+  user_data            = file("${path.module}/user_data.sh")
 }
 
 resource "aws_s3_bucket" "operation" {
@@ -24,13 +24,13 @@ resource "aws_s3_bucket" "operation" {
 }
 
 resource "aws_cloudwatch_log_group" "operation" {
-  name = "/operation"
+  name              = "/operation"
   retention_in_days = 180
 }
 
 resource "aws_ssm_document" "session_manager_run_shell" {
-  name = "SSM-SessionManagerRunShell"
-  document_type = "Session"
+  name            = "SSM-SessionManagerRunShell"
+  document_type   = "Session"
   document_format = "JSON"
 
   content = <<EOF
