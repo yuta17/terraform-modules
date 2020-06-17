@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "main" {
   execution_role_arn       = var.execution_role_arn
 
   lifecycle {
-    ignore_changes = "all"
+    ignore_changes = ["*"]
   }
 }
 
