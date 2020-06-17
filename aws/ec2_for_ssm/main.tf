@@ -62,7 +62,7 @@ resource "aws_ssm_document" "session_manager_run_shell" {
   document_type = "Session"
   document_format = "JSON"
 
-  content = << EOF
+  content = <<EOF
     {
       "schemaVersion": "1.0",
       "description": "Document to hold regional settings for Session Manager",
