@@ -63,7 +63,7 @@ resource "aws_route" "public" {
 resource "aws_route" "private" {
   count = var.nat_gateways_count == 0 ? 0 : length(var.private_cidr_blocks)
 
-  route_table_id = element(aws_route_table.private.*.id, count.index)
+  route_table_id         = element(aws_route_table.private.*.id, count.index)
   nat_gateway_id         = element(aws_nat_gateway.main.*.id, count.index)
   destination_cidr_block = "0.0.0.0/0"
 }

@@ -19,6 +19,11 @@ variable "config_vars" {
   default = {}
 }
 
+variable "sensitive_config_vars" {
+  type    = map(string)
+  default = {}
+}
+
 variable "buildpacks" {
   type    = list(string)
   default = []
