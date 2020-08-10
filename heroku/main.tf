@@ -32,3 +32,10 @@ resource "heroku_addon" "rollbar" {
   app  = heroku_app.main.name
   plan = var.rollbar_plan
 }
+
+resource "heroku_addon" "rediscloud" {
+  count = var.rediscloud_count
+
+  app  = heroku_app.main.name
+  plan = var.rediscloud_plan
+}

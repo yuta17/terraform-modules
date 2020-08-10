@@ -58,3 +58,13 @@ variable "rollbar_count" {
   type    = number
   default = 1
 }
+
+variable "rediscloud_plan" {
+  type    = string
+  default = "rediscloud"
+}
+
+variable "rediscloud_count" {
+  type    = number
+  default = 0
+}
