@@ -68,3 +68,13 @@ variable "rediscloud_count" {
   type    = number
   default = 0
 }
+
+variable "scheduler_count" {
+  type    = number
+  default = 0
+}
+
+variable "scheduler_plan" {
+  type    = string
+  default = "scheduler:standard"
+}

@@ -39,3 +39,10 @@ resource "heroku_addon" "rediscloud" {
   app  = heroku_app.main.name
   plan = var.rediscloud_plan
 }
+
+resource "heroku_addon" "scheduler" {
+  count = var.scheduler_count
+
+  app  = heroku_app.main.name
+  plan = var.scheduler_plan
+}
